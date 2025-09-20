@@ -61,6 +61,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				mystic: {
+					deep: '#4C1D95',
+					purple: '#7C3AED',
+					gold: '#FCD34D',
+					brown: '#7C2D12',
+					light: '#E9D5FF'
 				}
 			},
 			borderRadius: {
