@@ -1,103 +1,47 @@
-import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const [selectedCards, setSelectedCards] = useState<number[]>([]);
-  const [showReading, setShowReading] = useState(false);
-
-  const tarotCards = [
-    { id: 1, name: 'Дурак', meaning: 'Новые начинания, спонтанность, свобода' },
-    { id: 2, name: 'Маг', meaning: 'Сила воли, манифестация, творчество' },
-    { id: 3, name: 'Верховная Жрица', meaning: 'Интуиция, подсознание, тайны' },
-    { id: 4, name: 'Императрица', meaning: 'Плодородие, женственность, изобилие' },
-    { id: 5, name: 'Император', meaning: 'Власть, стабильность, контроль' },
-    { id: 6, name: 'Иерофант', meaning: 'Традиции, духовность, обучение' },
-  ];
-
-  const blogPosts = [
-    {
-      title: 'Магия полнолуния: как использовать лунную энергию',
-      excerpt: 'Полнолуние — время наивысшей силы. Узнайте, как правильно проводить ритуалы...',
-      date: '15 сентября 2024',
-      category: 'Астрология'
-    },
-    {
-      title: 'Руны для начинающих: первые шаги в древнем искусстве',
-      excerpt: 'Руническая магия открывает двери в мир древней мудрости...',
-      date: '12 сентября 2024',
-      category: 'Руны'
-    },
-    {
-      title: 'Защитные амулеты: создаем оберег своими руками',
-      excerpt: 'Простые способы создания защитных талисманов в домашних условиях...',
-      date: '10 сентября 2024',
-      category: 'Магия'
-    }
-  ];
-
-  const handleCardClick = (cardId: number) => {
-    if (selectedCards.length < 3 && !selectedCards.includes(cardId)) {
-      setSelectedCards([...selectedCards, cardId]);
-    }
-  };
-
-  const resetReading = () => {
-    setSelectedCards([]);
-    setShowReading(false);
-  };
-
-  const performReading = () => {
-    if (selectedCards.length === 3) {
-      setShowReading(true);
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
-      <header className="relative overflow-hidden">
-        <div className="mystical-gradient py-20 px-6">
-          <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-              Мистические Откровения
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-              Погрузитесь в мир магии, гаданий и древних знаний. 
-              Откройте двери в таинственную вселенную предсказаний.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="bg-white text-mystic-deep hover:bg-white/90">
-                <Icon name="Sparkles" className="mr-2" />
-                Начать гадание
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-mystic-deep">
-                <Icon name="BookOpen" className="mr-2" />
-                Читать блог
-              </Button>
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Hero Section */}
+      <section className="relative py-20 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900">
+            Добро пожаловать!
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Современный и стильный сайт для вашего бизнеса. 
+            Создан с вниманием к деталям и удобству пользователей.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Icon name="Rocket" className="mr-2" />
+              Начать работу
+            </Button>
+            <Button size="lg" variant="outline">
+              <Icon name="Info" className="mr-2" />
+              Узнать больше
+            </Button>
           </div>
         </div>
-      </header>
+      </section>
 
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Icon name="Eye" className="text-accent" size={24} />
-              <span className="font-bold text-xl">Mystical</span>
+              <Icon name="Zap" className="text-blue-600" size={24} />
+              <span className="font-bold text-xl">YourSite</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#about" className="hover:text-accent transition-colors">Обо мне</a>
-              <a href="#tarot" className="hover:text-accent transition-colors">Гадания</a>
-              <a href="#blog" className="hover:text-accent transition-colors">Статьи</a>
-              <a href="#services" className="hover:text-accent transition-colors">Услуги</a>
-              <a href="#spreads" className="hover:text-accent transition-colors">Расклады</a>
-              <a href="#contact" className="hover:text-accent transition-colors">Контакты</a>
+              <a href="#home" className="hover:text-blue-600 transition-colors">Главная</a>
+              <a href="#about" className="hover:text-blue-600 transition-colors">О нас</a>
+              <a href="#services" className="hover:text-blue-600 transition-colors">Услуги</a>
+              <a href="#portfolio" className="hover:text-blue-600 transition-colors">Портфолио</a>
+              <a href="#contact" className="hover:text-blue-600 transition-colors">Контакты</a>
             </div>
             <Button variant="outline" size="sm">
               <Icon name="Menu" size={20} />
@@ -107,142 +51,44 @@ const Index = () => {
       </nav>
 
       <main className="max-w-6xl mx-auto px-6 py-12 space-y-20">
-        {/* Tarot Reading Section */}
-        <section id="tarot" className="space-y-8">
+        {/* About Section */}
+        <section id="about" className="space-y-8">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold mystical-text">
-              Интерактивный расклад Таро
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              О нашей компании
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Выберите 3 карты для получения персонального предсказания
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Мы создаем качественные решения для вашего бизнеса
             </p>
           </div>
 
-          <div className="relative">
-            <img 
-              src="/img/591c39db-abf4-47b9-bc08-d9a183be5244.jpg" 
-              alt="Mystical background" 
-              className="absolute inset-0 w-full h-full object-cover rounded-2xl opacity-20"
-            />
-            <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-8 border">
-              {!showReading ? (
-                <>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
-                    {tarotCards.map((card) => (
-                      <div
-                        key={card.id}
-                        className={`tarot-card h-40 flex items-center justify-center text-center p-4 ${
-                          selectedCards.includes(card.id) ? 'ring-2 ring-accent' : ''
-                        }`}
-                        onClick={() => handleCardClick(card.id)}
-                      >
-                        <div className="text-accent">
-                          <Icon name="Sparkles" size={32} className="mx-auto mb-2" />
-                          <p className="text-sm font-medium">Карта {card.id}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="text-center space-y-4">
-                    <div className="flex justify-center gap-2">
-                      {[1, 2, 3].map((pos) => (
-                        <div
-                          key={pos}
-                          className={`w-4 h-4 rounded-full border-2 ${
-                            selectedCards.length >= pos ? 'bg-accent border-accent' : 'border-muted-foreground'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <p className="text-muted-foreground">
-                      Выбрано карт: {selectedCards.length} из 3
-                    </p>
-                    <div className="flex gap-4 justify-center">
-                      <Button 
-                        onClick={performReading}
-                        disabled={selectedCards.length !== 3}
-                        className="bg-accent text-accent-foreground hover:bg-accent/90"
-                      >
-                        <Icon name="Wand2" className="mr-2" />
-                        Получить расклад
-                      </Button>
-                      <Button variant="outline" onClick={resetReading}>
-                        Сбросить
-                      </Button>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <div className="space-y-8">
-                  <h3 className="text-2xl font-bold text-center mystical-text">
-                    Ваш расклад готов
-                  </h3>
-                  <div className="grid md:grid-cols-3 gap-6">
-                    {selectedCards.map((cardId, index) => {
-                      const card = tarotCards.find(c => c.id === cardId);
-                      const positions = ['Прошлое', 'Настоящее', 'Будущее'];
-                      return (
-                        <Card key={cardId} className="bg-card/80 backdrop-blur-sm">
-                          <CardHeader className="text-center">
-                            <div className="w-16 h-16 mx-auto bg-accent/20 rounded-full flex items-center justify-center mb-4">
-                              <Icon name="Star" className="text-accent" size={24} />
-                            </div>
-                            <CardTitle className="text-accent">{positions[index]}</CardTitle>
-                            <CardDescription className="font-medium text-foreground">
-                              {card?.name}
-                            </CardDescription>
-                          </CardHeader>
-                          <CardContent>
-                            <p className="text-sm text-muted-foreground text-center">
-                              {card?.meaning}
-                            </p>
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
-                  <div className="text-center">
-                    <Button onClick={resetReading} variant="outline">
-                      <Icon name="RotateCcw" className="mr-2" />
-                      Новое гадание
-                    </Button>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-
-        {/* Blog Section */}
-        <section id="blog" className="space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold mystical-text">
-              Мистический блог
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Погружение в мир эзотерики и древних знаний
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.map((post, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: 'Target',
+                title: 'Наша миссия',
+                description: 'Помогаем компаниям достигать целей через инновационные решения'
+              },
+              {
+                icon: 'Users',
+                title: 'Команда',
+                description: 'Опытные специалисты с большим опытом в своей области'
+              },
+              {
+                icon: 'Award',
+                title: 'Качество',
+                description: 'Высокие стандарты качества и внимание к деталям'
+              }
+            ].map((item, index) => (
+              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary">{post.category}</Badge>
-                    <span className="text-sm text-muted-foreground">{post.date}</span>
+                  <div className="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                    <Icon name={item.icon as any} className="text-blue-600" size={24} />
                   </div>
-                  <CardTitle className="group-hover:text-accent transition-colors">
-                    {post.title}
-                  </CardTitle>
+                  <CardTitle>{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">{post.excerpt}</p>
-                  <Button variant="ghost" className="w-full justify-start p-0 hover:text-accent">
-                    Читать далее
-                    <Icon name="ArrowRight" className="ml-2" size={16} />
-                  </Button>
+                  <p className="text-gray-600">{item.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -252,50 +98,130 @@ const Index = () => {
         {/* Services Section */}
         <section id="services" className="space-y-8">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold mystical-text">
-              Мои услуги
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Наши услуги
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Профессиональные гадания и консультации
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Полный спектр услуг для развития вашего бизнеса
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: 'Star',
-                title: 'Гадание на Таро',
-                description: 'Персональные расклады на любые жизненные вопросы',
-                price: 'от 2000 ₽'
+                icon: 'Monitor',
+                title: 'Веб-разработка',
+                description: 'Создание современных и функциональных веб-сайтов',
+                price: 'от 50 000 ₽'
               },
               {
-                icon: 'Moon',
-                title: 'Лунная магия',
-                description: 'Ритуалы и практики в соответствии с лунными циклами',
-                price: 'от 3000 ₽'
+                icon: 'Smartphone',
+                title: 'Мобильные приложения',
+                description: 'Разработка приложений для iOS и Android',
+                price: 'от 100 000 ₽'
               },
               {
-                icon: 'Gem',
-                title: 'Работа с кристаллами',
-                description: 'Подбор и настройка кристаллов для ваших целей',
-                price: 'от 1500 ₽'
+                icon: 'TrendingUp',
+                title: 'Маркетинг',
+                description: 'Продвижение вашего бизнеса в интернете',
+                price: 'от 30 000 ₽'
+              },
+              {
+                icon: 'Palette',
+                title: 'Дизайн',
+                description: 'Создание уникального фирменного стиля',
+                price: 'от 25 000 ₽'
+              },
+              {
+                icon: 'Database',
+                title: 'Базы данных',
+                description: 'Проектирование и оптимизация баз данных',
+                price: 'от 40 000 ₽'
+              },
+              {
+                icon: 'Shield',
+                title: 'Безопасность',
+                description: 'Защита данных и кибербезопасность',
+                price: 'от 35 000 ₽'
               }
             ].map((service, index) => (
-              <Card key={index} className="text-center group hover:shadow-lg transition-all duration-300">
+              <Card key={index} className="text-center group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
-                  <div className="w-16 h-16 mx-auto bg-accent/20 rounded-full flex items-center justify-center mb-4 group-hover:bg-accent/30 transition-colors">
-                    <Icon name={service.icon as any} className="text-accent" size={24} />
+                  <div className="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
+                    <Icon name={service.icon as any} className="text-blue-600" size={24} />
                   </div>
                   <CardTitle>{service.title}</CardTitle>
                   <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <p className="text-2xl font-bold text-accent">{service.price}</p>
-                    <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                      Записаться
+                    <p className="text-2xl font-bold text-blue-600">{service.price}</p>
+                    <Button className="w-full">
+                      Заказать
                     </Button>
                   </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Portfolio Section */}
+        <section id="portfolio" className="space-y-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Наше портфолио
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Примеры успешно реализованных проектов
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Интернет-магазин',
+                description: 'Современная платформа электронной коммерции',
+                category: 'E-commerce',
+                image: '/img/d6609b7b-a3b5-4d8f-8564-0acaa7c675b3.jpg'
+              },
+              {
+                title: 'Корпоративный сайт',
+                description: 'Представительский сайт для крупной компании',
+                category: 'Corporate',
+                image: '/img/a052960b-49d4-4e71-b0b5-641b29d818bb.jpg'
+              },
+              {
+                title: 'Мобильное приложение',
+                description: 'Приложение для управления задачами',
+                category: 'Mobile',
+                image: '/img/ff4fae71-b7a3-4558-bc3c-aeb8d79c26f7.jpg'
+              }
+            ].map((project, index) => (
+              <Card key={index} className="group overflow-hidden hover:shadow-lg transition-all duration-300">
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
+                      {project.category}
+                    </span>
+                  </div>
+                  <CardTitle className="group-hover:text-blue-600 transition-colors">
+                    {project.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <Button variant="ghost" className="w-full justify-start p-0 hover:text-blue-600">
+                    Подробнее
+                    <Icon name="ArrowRight" className="ml-2" size={16} />
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -305,56 +231,64 @@ const Index = () => {
         {/* Contact Section */}
         <section id="contact" className="space-y-8">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold mystical-text">
-              Связаться со мной
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Свяжитесь с нами
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Готова ответить на ваши вопросы и помочь в трудную минуту
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Готовы обсудить ваш проект и ответить на любые вопросы
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="p-8">
               <CardHeader className="p-0 mb-6">
-                <CardTitle>Онлайн консультация</CardTitle>
+                <CardTitle>Контактная информация</CardTitle>
                 <CardDescription>
-                  Свяжитесь со мной для записи на гадание или консультацию
+                  Свяжитесь с нами удобным для вас способом
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-0 space-y-4">
                 <div className="flex items-center space-x-3">
-                  <Icon name="MessageCircle" className="text-accent" />
-                  <span>Telegram: @mystical_insights</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Icon name="Phone" className="text-accent" />
+                  <Icon name="Phone" className="text-blue-600" />
                   <span>+7 (999) 123-45-67</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Icon name="Mail" className="text-accent" />
-                  <span>mystical@example.com</span>
+                  <Icon name="Mail" className="text-blue-600" />
+                  <span>info@yoursite.ru</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Icon name="MapPin" className="text-blue-600" />
+                  <span>Москва, ул. Примерная, д. 123</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Icon name="Globe" className="text-blue-600" />
+                  <span>www.yoursite.ru</span>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="p-8 bg-accent/10">
+            <Card className="p-8 bg-blue-50">
               <CardHeader className="p-0 mb-6">
-                <CardTitle>График работы</CardTitle>
+                <CardTitle>Часы работы</CardTitle>
                 <CardDescription>
-                  Принимаю клиентов в удобное для вас время
+                  Мы работаем для вас в удобное время
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-0 space-y-3">
                 <div className="flex justify-between">
                   <span>Понедельник - Пятница</span>
-                  <span className="text-accent">10:00 - 20:00</span>
+                  <span className="text-blue-600 font-medium">9:00 - 18:00</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Суббота - Воскресенье</span>
-                  <span className="text-accent">12:00 - 18:00</span>
+                  <span>Суббота</span>
+                  <span className="text-blue-600 font-medium">10:00 - 16:00</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Воскресенье</span>
+                  <span className="text-gray-500">Выходной</span>
                 </div>
                 <div className="pt-4">
-                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                  <Button className="w-full">
                     <Icon name="Calendar" className="mr-2" />
                     Записаться на консультацию
                   </Button>
@@ -366,45 +300,61 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-card border-t mt-20">
+      <footer className="bg-white border-t mt-20">
         <div className="max-w-6xl mx-auto px-6 py-12">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Icon name="Eye" className="text-accent" size={24} />
-                <span className="font-bold text-xl">Mystical Insights</span>
+                <Icon name="Zap" className="text-blue-600" size={24} />
+                <span className="font-bold text-xl">YourSite</span>
               </div>
-              <p className="text-muted-foreground">
-                Ваш проводник в мир магии и мистических откровений. 
-                Откройте свою судьбу вместе со мной.
+              <p className="text-gray-600">
+                Создаем качественные веб-решения для вашего бизнеса. 
+                Современные технологии и индивидуальный подход.
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Услуги</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>Гадание на Таро</li>
-                <li>Астрологические прогнозы</li>
-                <li>Руническая магия</li>
-                <li>Лунные ритуалы</li>
+              <h3 className="font-semibold mb-4 text-gray-900">Услуги</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li><a href="#" className="hover:text-blue-600 transition-colors">Веб-разработка</a></li>
+                <li><a href="#" className="hover:text-blue-600 transition-colors">Мобильные приложения</a></li>
+                <li><a href="#" className="hover:text-blue-600 transition-colors">Дизайн</a></li>
+                <li><a href="#" className="hover:text-blue-600 transition-colors">Маркетинг</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Социальные сети</h3>
-              <div className="flex space-x-4">
-                <Button variant="ghost" size="sm">
-                  <Icon name="MessageCircle" size={20} />
-                </Button>
-                <Button variant="ghost" size="sm">
-                  <Icon name="Instagram" size={20} />
-                </Button>
-                <Button variant="ghost" size="sm">
-                  <Icon name="Youtube" size={20} />
-                </Button>
+              <h3 className="font-semibold mb-4 text-gray-900">Компания</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li><a href="#" className="hover:text-blue-600 transition-colors">О нас</a></li>
+                <li><a href="#" className="hover:text-blue-600 transition-colors">Команда</a></li>
+                <li><a href="#" className="hover:text-blue-600 transition-colors">Карьера</a></li>
+                <li><a href="#" className="hover:text-blue-600 transition-colors">Блог</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-4 text-gray-900">Контакты</h3>
+              <div className="space-y-2 text-gray-600">
+                <p>+7 (999) 123-45-67</p>
+                <p>info@yoursite.ru</p>
+                <div className="flex space-x-4 pt-4">
+                  <Button variant="ghost" size="sm">
+                    <Icon name="Facebook" size={20} />
+                  </Button>
+                  <Button variant="ghost" size="sm">
+                    <Icon name="Twitter" size={20} />
+                  </Button>
+                  <Button variant="ghost" size="sm">
+                    <Icon name="Instagram" size={20} />
+                  </Button>
+                  <Button variant="ghost" size="sm">
+                    <Icon name="Linkedin" size={20} />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-          <div className="border-t mt-8 pt-8 text-center text-muted-foreground">
-            <p>&copy; 2024 Mystical Insights. Все права защищены.</p>
+          <div className="border-t mt-8 pt-8 text-center text-gray-600">
+            <p>&copy; 2024 YourSite. Все права защищены.</p>
           </div>
         </div>
       </footer>
